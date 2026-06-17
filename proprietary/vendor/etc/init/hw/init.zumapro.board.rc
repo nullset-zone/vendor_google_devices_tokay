@@ -290,6 +290,8 @@ on fs
     mount_all --early
 
     # Mount modem partition
+# GuardTalk: conditionally mount modem
+on property:ro.radio.noril!=yes
     mount_all /vendor/etc/fstab.modem --early
     restorecon_recursive /mnt/vendor/modem_img
 
